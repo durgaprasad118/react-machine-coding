@@ -22,7 +22,7 @@ const AccordionItem = ({ id, qsn, ans, ind, setIndex }: ItemType) => {
         <div>
             <div
                 className="px-4 py-3 border border-1 border-gray-200 rounded-md"
-                onClick={() => setIndex(id)}
+                onClick={() => setIndex(id === ind ? -1 : id)}
             >
                 <div className="flex items-center justify-between h-auto transform transition-all duration-400 ease-in-out delay-75 ">
                     <h1
