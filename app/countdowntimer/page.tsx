@@ -10,18 +10,18 @@ const Timer = () => {
     const [minutes, setMinutes] = useState<number>(0);
     const [seconds, setSeconds] = useState<number>(0);
     const [started, setStarted] = useState<boolean>(false);
-    const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null);
     const [resume, setResume] = useState<boolean>(false);
 
     useEffect(() => {
+        let timerId: NodeJS.Timeout | null = null;
+
         if (started) {
             if (hours === 0 && minutes === 0 && seconds === 0) {
                 clearInterval(timerId!);
                 setStarted(false);
                 return;
             }
-
-            const id = setInterval(() => {
+            timerId = setInterval(() => {
                 if (seconds > 0) {
                     setSeconds((prev) => prev - 1);
                 } else if (minutes > 0) {
@@ -33,36 +33,31 @@ const Timer = () => {
                     setSeconds(59);
                 }
             }, 1000);
-
-            setTimerId(id);
-            return () => clearInterval(id);
         }
-    }, [started, hours, minutes, seconds, timerId]);
-
+        return () => {
+            if (timerId) {
+                clearInterval(timerId);
+            }
+        };
+    }, [started, hours, minutes, seconds]);
     const handleStart = () => {
         if (!started && (hours > 0 || minutes > 0 || seconds > 0)) {
             setStarted(true);
+            setResume(false);
         }
     };
 
     const handleReset = () => {
         setStarted(false);
-        if (timerId) {
-            clearInterval(timerId);
-        }
+        setResume(false);
         setHours(0);
         setMinutes(0);
         setSeconds(0);
     };
 
     const handleStop = () => {
-        if (!resume) {
-            setStarted(false);
-            setResume(true);
-        } else {
-            setStarted(true);
-            setResume(false);
-        }
+        setStarted((prev) => !prev);
+        setResume((prev) => !prev);
     };
 
     return (
@@ -100,7 +95,7 @@ const Timer = () => {
                         onClick={handleStop}
                         className="px-6 py-1 bg-red-500 hover:bg-red-600 font-semibold rounded-md border-none"
                     >
-                        {resume ? 'resume' : 'pause'}
+                        {resume ? 'Resume' : 'Pause'}
                     </button>
                     <button
                         onClick={handleReset}
