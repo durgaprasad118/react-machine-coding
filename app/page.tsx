@@ -7,7 +7,8 @@ export default function Home() {
     const [filterValue, setFilterValue] = useState('');
     const components = [
         { name: 'Single Accordion', path: '/singleaccordion' },
-        { name: 'Multi Accordion', path: '/multiaccordion' }
+        { name: 'Multi Accordion', path: '/multiaccordion' },
+        { name: 'count down timer', path: '/countdowntimer' }
     ];
     const debounced = useDebounce(filterValue);
     const filteredComponents = components.filter((x) =>
