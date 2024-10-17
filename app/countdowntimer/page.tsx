@@ -32,6 +32,14 @@ const Timer = () => {
                     setMinutes(59);
                     setSeconds(59);
                 }
+                if (seconds > 60) {
+                    setMinutes((prev) => prev + 1);
+                    setSeconds(seconds - 60);
+                }
+                if (minutes > 60) {
+                    setHours((prev) => prev + 1);
+                    setMinutes(minutes - 61);
+                }
             }, 1000);
         }
         return () => {
