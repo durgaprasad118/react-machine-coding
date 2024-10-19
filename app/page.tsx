@@ -1,11 +1,10 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Input from './searchtypeahead/Input';
 export default function Home() {
     const [inputValue, setInputValue] = useState('');
     const [filterValue, setFilterValue] = useState('');
-    const [mounted, setMounted] = useState(false);
     const components = [
         { name: 'Single Accordion', path: '/singleaccordion' },
         { name: 'Multi Accordion', path: '/multiaccordion' },
@@ -16,12 +15,6 @@ export default function Home() {
     const handleSelect = (value: string) => {
         setFilterValue(value);
     };
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-    if (mounted) {
-        return null;
-    }
 
     const filteredComponents = components.filter((x) =>
         x.name.toLowerCase().includes(filterValue.toLowerCase())
