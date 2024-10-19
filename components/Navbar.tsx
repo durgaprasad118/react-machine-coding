@@ -2,11 +2,19 @@
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 const Navbar = () => {
+    const [isMounted, setIsMounted] = useState(false);
     const { systemTheme, theme, setTheme } = useTheme();
     const currentTheme = theme === 'system' ? systemTheme : theme;
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+    if (!isMounted) {
+        return null;
+    }
     return (
-        <nav className="dark:bg-gray-900 bg-gray-50 border border-b-gray-100 dark:border-none">
+        <nav className="dark:bg-gray-900 bg-gray-200 border border-b-gray-300 dark:border-none">
             <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
                 <Link
                     href="/"
