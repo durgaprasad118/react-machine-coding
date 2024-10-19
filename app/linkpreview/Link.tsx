@@ -48,7 +48,7 @@ const Link = ({
                     alt="preveiw image"
                     objectFit="cover"
                     className="
-                    absolute z-50 w-auto h-auto border-2 border-transparent shadow rounded-xl  hover:scale-105 hover:border-neutral-200 dark:hover:border-neutral-800 transition-all duration-300 ease-in-out bottom-6 right-1 md:w-32 md:h-24 md:bottom-6 md:right-1 sm:w-24 sm:h-16 xs:w-20 xs:h-14"
+                    absolute z-50 w-auto h-auto border-2 border-transparent dark:bg-white bg-gray-800 shadow rounded-xl  hover:scale-105 hover:border-neutral-200 dark:hover:border-neutral-800 transition-all duration-300 ease-in-out bottom-6 right-1 md:w-32 md:h-24 md:bottom-6 md:right-1 sm:w-24 sm:h-16 xs:w-20 xs:h-14"
                 />
             )}
         </div>
