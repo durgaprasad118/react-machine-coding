@@ -26,11 +26,11 @@ const LinkPreveiw = () => {
                         isStatic={false}
                         imageSrc=""
                     />
+                    {/* static image i.e image link */}
                     <Link
-                        url="https://taskmaestro.vercel.app"
                         textToShow={'task maestro'}
-                        isStatic={false}
-                        imageSrc=""
+                        isStatic
+                        imageSrc="https://i.pinimg.com/474x/a1/49/31/a149319711bb7e325ec5556a3db00087.jpg"
                     />
                 </div>
             </main>

@@ -9,7 +9,7 @@ const Link = ({
     isStatic,
     imageSrc
 }: {
-    url: string;
+    url?: string;
     textToShow: string;
     isStatic: boolean;
     imageSrc?: string;
