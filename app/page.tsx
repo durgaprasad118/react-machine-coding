@@ -10,7 +10,9 @@ export default function Home() {
         { name: 'Multi Accordion', path: '/multiaccordion' },
         { name: 'count down timer', path: '/countdowntimer' },
         { name: 'Search TypeAhead', path: '/searchtypeahead' },
-        { name: 'Link Preview', path: '/linkpreview' }
+        { name: 'Link Preview', path: '/linkpreview' },
+        { name: 'Multi Select', path: '/multiselect' },
+        { name: 'Framer Learn', path: '/framer' }
     ];
     const handleSelect = (value: string) => {
         setFilterValue(value);
